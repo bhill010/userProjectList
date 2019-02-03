@@ -86,13 +86,16 @@ app.get("/users/:id", function(req, res) {
 app.get("/users/:id/projects", function(req, res) {
   console.log("FIRST!");
   console.log("req.params.id :", req.params.id);
-  UserProject.find({ UserId: req.params.id }).exec()
+  UserProject.find({ UserId: req.params.id })
+    .exec()
     .then(userProjects => {
       let projectIds = [];
       userProjects.forEach(item => {
-        projectIds.push(item.ProjectId)
+        projectIds.push(item.ProjectId);
       });
-      return Project.find({ Id: { $in: projectIds } }).exec()
+      return Project.find({ Id: { $in: projectIds } })
+        .sort('Id')
+        .exec()
         .then(projects => {
           if (req.xhr) {
             console.log("XHR!");
