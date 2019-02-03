@@ -25,7 +25,7 @@ body {
 
 .container {
   margin-top: 25px;
-  border: 3px solid #05668D;
+  border: 3px solid #05668d;
   padding: 25px;
   height: 80%;
   min-height: 400px;
@@ -51,7 +51,7 @@ body {
 
 .project-table-header {
   display: table-header-group;
-  background-color: #05668D;
+  background-color: #05668d;
 }
 
 .project-table-header-container > th {

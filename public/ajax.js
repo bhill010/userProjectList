@@ -1,9 +1,14 @@
-$("#user-dropdown-container").on('change', '#user-dropdown', function(e){
+$("#user-dropdown-container").on("change", "#user-dropdown", function(e) {
   e.preventDefault();
-  var url = $(this).find("option:selected").attr("href");
-  history.pushState(null, '', url);
-  $("#project-table").find("tr:not(:first)").fadeOut(100, function() { $(this).remove(); })
-
+  var url = $(this)
+    .find("option:selected")
+    .attr("href");
+  history.pushState(null, "", url);
+  $("#project-table")
+    .find("tr:not(:first)")
+    .fadeOut(100, function() {
+      $(this).remove();
+    });
 
   $.ajax({
     url: url,
@@ -12,12 +17,15 @@ $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
       let projects = response.projects;
       let userProjects = response.userProjects;
 
-      projects.forEach(function(project){
+      projects.forEach(function(project) {
         userProjects.forEach(function(userProject) {
-          if ( project.Id === userProject.ProjectId) {
-            let timeDiff = new Date(project.StartDate).getTime() - new Date(userProject.AssignedDate).getTime();
-            $('#project-table > tbody:last-child').append(
-              `
+          if (project.Id === userProject.ProjectId) {
+            let timeDiff =
+              new Date(project.StartDate).getTime() -
+              new Date(userProject.AssignedDate).getTime();
+            $("#project-table > tbody:last-child")
+              .append(
+                `
               <tr id='project-user-data'">
                 <td>
                   ${project.Id}
@@ -26,27 +34,29 @@ $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
                   ${new Date(project.StartDate).toLocaleDateString("en-US")}
                 </td>
                 <td>
-                  ${ Math.ceil(timeDiff / (1000 * 3600 * 24)) < 0 ? "Started" : Math.ceil(timeDiff / (1000 * 3600 * 24)) }
+                  ${
+                    Math.ceil(timeDiff / (1000 * 3600 * 24)) < 0
+                      ? "Started"
+                      : Math.ceil(timeDiff / (1000 * 3600 * 24))
+                  }
                 </td>
                 <td>
-                  ${ new Date(project.EndDate).toLocaleDateString("en-US") }
+                  ${new Date(project.EndDate).toLocaleDateString("en-US")}
                 </td>
                 <td>
-                  ${ project.Credits }
+                  ${project.Credits}
                 </td>
                 <td>
-                  ${ userProject.IsActive === true ? "Active" : "Inactive" }
+                  ${userProject.IsActive === true ? "Active" : "Inactive"}
                 </td>
               </tr>
               `
-            ).hide().fadeIn(100);
-          };
+              )
+              .hide()
+              .fadeIn(100);
+          }
         });
       });
-
-    },
-    error: function(xhr) {
-      //Do Something to handle error
     }
   });
 });
