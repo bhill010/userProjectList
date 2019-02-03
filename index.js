@@ -85,17 +85,18 @@ app.get("/users/:id", function(req, res) {
 
 app.get("/users/:id/projects", function(req, res) {
   UserProject.find({ UserId: req.params.id }).exec()
-    .then(userReference => {
-      console.log("userReference :", userReference);
-      console.log("userReference projectId :", userReference.ProjectId);
+    .then(userProjects => {
+      console.log("userProjects :", userProjects);
+      console.log("userProjects projectId :", userProjects.ProjectId);
       let projectIds = [];
-      userReference.forEach(item => {
+      userProjects.forEach(item => {
         projectIds.push(item.ProjectId)
       });
       console.log("projectIds :", projectIds);
       return Project.find({ Id: { $in: projectIds } }).exec()
-        .then(project => {
-          res.send(project);
+        .then(projects => {
+          res.render("show", { projects: projects, userProjects: userProjects });
+          // res.send({ projects: projects, userReference: userReference });
         })
         .catch(err => {
           console.log(err);

@@ -9,14 +9,4 @@
   <body>
     <div class="container">
 
-      <div class="row">
-    		<select id="user-dropdown">
-    		  <option value="" selected disabled hidden>--</option>
-    			<% users.forEach(function(user){ %>
-    				<option href="/users/<%=user.Id%>/projects">
-    					<%= user.FirstName %>
-    					<%= user.LastName %>
-    				</option>
-    			<% }); %>
-    		</select>
-    	</div>
+      

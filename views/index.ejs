@@ -1,53 +1,48 @@
 <% include partials/header %>
 
-	<div style="display:flex;">
+<div class="row">
+	<select id="user-dropdown">
+		<option value="" selected disabled hidden>--</option>
+		<% users.forEach(function(user){ %>
+			<option href="/users/<%=user.Id%>/projects">
+				<%= user.FirstName %>
+				<%= user.LastName %>
+			</option>
+		<% }); %>
+	</select>
+</div>
+
+<div style="display:flex;">
+	<div class="">
 		<div class="">
-			<div class="">
-				Project Id
-			</div>
-			<div class="">
-				Data
-			</div>
-		</div>
-		<div class="">
-			<div class="">
-				Start Date
-			</div>
-			<div class="">
-				Data
-			</div>
-		</div>
-		<div class="">
-			<div class="">
-				Time To Start
-			</div>
-			<div class="">
-				Data
-			</div>
-		</div>
-		<div class="">
-			<div class="">
-				End Date
-			</div>
-			<div class="">
-				Data
-			</div>
-		</div>
-		<div class="">
-			<div class="">
-				Credits
-			</div>
-			<div class="">
-				Data
-			</div>
-		</div>
-		<div class="">
-			<div class="">
-				Status
-			</div>
-			<div class="">
-				Data
-			</div>
+			Project Id
 		</div>
 	</div>
+	<div class="">
+		<div class="">
+			Start Date
+		</div>
+	</div>
+	<div class="">
+		<div class="">
+			Time To Start
+		</div>
+	</div>
+	<div class="">
+		<div class="">
+			End Date
+		</div>
+	</div>
+	<div class="">
+		<div class="">
+			Credits
+		</div>
+	</div>
+	<div class="">
+		<div class="">
+			Status
+		</div>
+	</div>
+</div>
+
 <% include partials/footer %>
