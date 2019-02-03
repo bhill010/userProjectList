@@ -98,8 +98,8 @@ app.get("/users/:id/projects", function(req, res) {
             console.log("XHR!");
             res.json({ id: req.params.id, projects: projects, userProjects: userProjects })
           } else {
-            res.render("show", { projects: projects, userProjects: userProjects });
-            // res.send({ projects: projects, userReference: userReference });
+            // res.render("show", { projects: projects, userProjects: userProjects });
+            res.send({ projects: projects, userReference: userReference });
           }
         })
         .catch(err => {

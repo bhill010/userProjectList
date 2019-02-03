@@ -1,7 +1,7 @@
 $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
   e.preventDefault();
   var url = $(this).find("option:selected").attr("href");
-  $("#project-table").find("tr:not(:first)").remove();
+  $("#project-table").find("tr:not(:first)").fadeOut(100, function() { $(this).remove(); })
 
 
   $.ajax({
@@ -17,7 +17,7 @@ $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
             let timeDiff = Math.abs(new Date(project.StartDate).getTime() - new Date(userProject.AssignedDate).getTime());
             $('#project-table > tbody:last-child').append(
               `
-              <tr id='project-user-data' style="display:flex;">
+              <tr id='project-user-data'">
                 <td>
                   ${project.Id}
                 </td>
@@ -38,7 +38,7 @@ $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
                 </td>
               </tr>
               `
-            )
+            ).hide().fadeIn(100);
           };
         });
       });

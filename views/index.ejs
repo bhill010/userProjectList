@@ -1,7 +1,7 @@
 <% include partials/header %>
 
-<div id="user-dropdown-container">
-	<select id="user-dropdown">
+<div id="user-dropdown-container" class="user-dropdown-container">
+	<select id="user-dropdown" class="user-dropdown">
 		<option value="" selected disabled hidden>--</option>
 		<% users.forEach(function(user){ %>
 			<option id="user-option-<%=user.Id%>" href="/users/<%=user.Id%>/projects">
@@ -12,9 +12,9 @@
 	</select>
 </div>
 
-<table id="project-table" style="display:flex;flex-direction:column;">
-	<tbody id="project-table-body">
-		<tr>
+<table id="project-table" class="project-table">
+	<thead class="project-table-header">
+		<tr class="project-table-header-container">
 	    <th>Project Id</th>
 	    <th>Start Date</th>
 	    <th>Time To Start</th>
@@ -22,6 +22,8 @@
 	    <th>Credits</th>
 	    <th>Status</th>
 	  </tr>
+	<thead>
+	<tbody class="project-table-body-container">
 		<tr>
 			<td></td>
 			<td></td>

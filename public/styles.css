@@ -1,0 +1,51 @@
+/*
+
+COLORS:
+Light turquoise: #00A896
+Turquoise: #028090
+Dark turquoise: #05668D
+Gray: #777
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 20
+}
+
+.container {
+  height: 95vh;
+}
+
+.user-dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user-dropdown {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-table {
+  width: 100%;
+}
+
+.project-table-header {
+  display: table-header-group;
+}
+
+.project-table-header-container > th {
+  width: 10%;
+}
