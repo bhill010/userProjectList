@@ -22,7 +22,7 @@ module.exports = app => {
             if (req.xhr) {
               res.json({ id: req.params.id, projects: projects, userProjects: userProjects })
             } else {
-              res.send({ projects: projects, userReference: userReference });
+              res.redirect("/");
             }
           })
           .catch(err => {

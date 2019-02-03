@@ -20,11 +20,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-sanitizer": "^1.0.5",
-    "handlebars": "^4.0.12",
-    "jquery": "^3.3.1",
     "mongoose": "^5.4.9",
-    "nodemon": "^1.18.9",
-    "semantic-ui-css": "^2.4.1",
-    "vanilla-router": "^1.2.7"
+    "nodemon": "^1.18.9"
   }
 }

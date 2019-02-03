@@ -4,15 +4,17 @@ const router = express.Router();
 const User = require("../models/User");
 
 module.exports = app => {
-  // GET users
-  app.get("/users", function(req, res, next) {
-    User.find({}, function(err, allUsers) {
-      if (err) {
+  // GET users (default route)
+  app.get("/", function(req, res, next) {
+    User.find({})
+      .sort("FirstName")
+      .exec()
+      .then(users => {
+        res.render("index", { users: users });
+      })
+      .catch(err => {
         console.log(err);
-      } else {
-        res.send(allUsers);
-      }
-    });
+      });
   });
 
   // SHOW a user
