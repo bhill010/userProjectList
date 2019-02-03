@@ -1,3 +1,5 @@
+<% include partials/header %>
+
 <% projects.forEach(function(project){ %>
   <% userProjects.forEach(function(userProject) { %>
     <% if ( project.Id === userProject.ProjectId) { %>
@@ -25,3 +27,5 @@
     <% }; %>
   <% }); %>
 <% }); %>
+
+<% include partials/footer %>

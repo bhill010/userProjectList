@@ -84,19 +84,23 @@ app.get("/users/:id", function(req, res) {
 // });
 
 app.get("/users/:id/projects", function(req, res) {
+  console.log("FIRST!");
+  console.log("req.params.id :", req.params.id);
   UserProject.find({ UserId: req.params.id }).exec()
     .then(userProjects => {
-      console.log("userProjects :", userProjects);
-      console.log("userProjects projectId :", userProjects.ProjectId);
       let projectIds = [];
       userProjects.forEach(item => {
         projectIds.push(item.ProjectId)
       });
-      console.log("projectIds :", projectIds);
       return Project.find({ Id: { $in: projectIds } }).exec()
         .then(projects => {
-          res.render("show", { projects: projects, userProjects: userProjects });
-          // res.send({ projects: projects, userReference: userReference });
+          if (req.xhr) {
+            console.log("XHR!");
+            res.json({ id: req.params.id, projects: projects, userProjects: userProjects })
+          } else {
+            res.render("show", { projects: projects, userProjects: userProjects });
+            // res.send({ projects: projects, userReference: userReference });
+          }
         })
         .catch(err => {
           console.log(err);
@@ -107,15 +111,15 @@ app.get("/users/:id/projects", function(req, res) {
     });
 });
 
-app.get("/projects/:id", function(req, res) {
-  Project.findById(req.params.id, function(err, project) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("show", {project: project});
-    }
-  });
-});
+// app.get("/projects/:id", function(req, res) {
+//   Project.findById(req.params.id, function(err, project) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.render("show", {project: project});
+//     }
+//   });
+// });
 
 
 const PORT = process.env.PORT || 5000;
