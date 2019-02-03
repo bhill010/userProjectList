@@ -35,11 +35,11 @@ app.use(express.static('public'));
 // Redirect all traffic to index.html
 // app.use((req, res) => res.sendFile(`${__dirname}/public/index.ejs`));
 
-app.get("/", function(req, res){
-  res.redirect("/users");
-});
+// app.get("/", function(req, res){
+//   res.redirect("/users");
+// });
 
-app.get("/users", function(req, res, next) {
+app.get("/", function(req, res, next) {
   User.find({})
     .sort('FirstName')
     .exec()

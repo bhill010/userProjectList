@@ -45,12 +45,13 @@ body {
 
 .project-table {
   width: 100%;
-  background-color: #05668D;
+  background-color: #028090;
   margin-top: 25px;
 }
 
 .project-table-header {
   display: table-header-group;
+  background-color: #05668D;
 }
 
 .project-table-header-container > th {

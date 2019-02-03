@@ -1,6 +1,7 @@
 $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
   e.preventDefault();
   var url = $(this).find("option:selected").attr("href");
+  history.pushState(null, '', url);
   $("#project-table").find("tr:not(:first)").fadeOut(100, function() { $(this).remove(); })
 
 
