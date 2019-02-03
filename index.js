@@ -27,7 +27,7 @@ app.use(express.static('public'));
 
 /* Run this function to seed database with initial data
 */
-// seedDatabase();
+seedDatabase();
 
 // require("./routes/userRoutes")(app);
 // require("./routes/projectRoutes")(app);

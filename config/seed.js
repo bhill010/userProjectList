@@ -3,6 +3,10 @@ const Project = require("../models/Project");
 const UserProject = require("../models/UserProject");
 
 module.exports = function seedDatabase() {
+  User.collection.drop();
+  Project.collection.drop();
+  UserProject.collection.drop();
+
   Promise.all([
       User.create([
         {
@@ -24,8 +28,8 @@ module.exports = function seedDatabase() {
       Project.create([
         {
           Id: 20001,
-          StartDate: new Date('01.02.2019'),
-          EndDate: new Date('01.03.2019'),
+          StartDate: new Date('01.05.2019'),
+          EndDate: new Date('01.06.2019'),
           Credits: 1
         },
         {
@@ -129,12 +133,12 @@ module.exports = function seedDatabase() {
             UserId: users[0].Id,
             ProjectId: projects[1].Id,
             IsActive: true,
-            AssignedDate: new Date('01.01.2019'),
+            AssignedDate: new Date('11.01.2019'),
           },
           {
             UserId: users[0].Id,
             ProjectId: projects[2].Id,
-            IsActive: true,
+            IsActive: false,
             AssignedDate: new Date('01.01.2019'),
           },
           {
@@ -147,7 +151,7 @@ module.exports = function seedDatabase() {
             UserId: users[0].Id,
             ProjectId: projects[4].Id,
             IsActive: true,
-            AssignedDate: new Date('01.01.2019'),
+            AssignedDate: new Date('06.01.2019'),
           },
           {
             UserId: users[1].Id,
@@ -159,7 +163,7 @@ module.exports = function seedDatabase() {
             UserId: users[1].Id,
             ProjectId: projects[6].Id,
             IsActive: true,
-            AssignedDate: new Date('01.01.2019'),
+            AssignedDate: new Date('07.01.2019'),
           },
           {
             UserId: users[1].Id,
@@ -170,7 +174,7 @@ module.exports = function seedDatabase() {
           {
             UserId: users[1].Id,
             ProjectId: projects[8].Id,
-            IsActive: true,
+            IsActive: false,
             AssignedDate: new Date('01.01.2019'),
           },
           {
@@ -189,7 +193,7 @@ module.exports = function seedDatabase() {
             UserId: users[2].Id,
             ProjectId: projects[11].Id,
             IsActive: true,
-            AssignedDate: new Date('01.01.2019'),
+            AssignedDate: new Date('10.01.2019'),
           },
           {
             UserId: users[2].Id,
@@ -200,14 +204,14 @@ module.exports = function seedDatabase() {
           {
             UserId: users[2].Id,
             ProjectId: projects[13].Id,
-            IsActive: true,
+            IsActive: false,
             AssignedDate: new Date('01.01.2019'),
           },
           {
             UserId: users[2].Id,
             ProjectId: projects[14].Id,
             IsActive: true,
-            AssignedDate: new Date('01.01.2019'),
+            AssignedDate: new Date('11.01.2019'),
           },
       ];
       return UserProject.create(userProjects);

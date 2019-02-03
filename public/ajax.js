@@ -14,7 +14,7 @@ $("#user-dropdown-container").on('change', '#user-dropdown', function(e){
       projects.forEach(function(project){
         userProjects.forEach(function(userProject) {
           if ( project.Id === userProject.ProjectId) {
-            let timeDiff = Math.abs(new Date(project.StartDate).getTime() - new Date(userProject.AssignedDate).getTime());
+            let timeDiff = new Date(project.StartDate).getTime() - new Date(userProject.AssignedDate).getTime();
             $('#project-table > tbody:last-child').append(
               `
               <tr id='project-user-data'">
