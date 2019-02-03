@@ -72,15 +72,38 @@ app.get("/users/:id", function(req, res) {
 //   });
 // });
 
+// app.get("/users/:id/projects", function(req, res) {
+//   UserProject.find({ UserId: req.params.id }, function(err, userReference) {
+//     if (err) {
+//       console.log(err);
+//       res.redirect("/users");
+//     } else {
+//       res.send(userReference);
+//     }
+//   });
+// });
+
 app.get("/users/:id/projects", function(req, res) {
-  UserProject.find({ UserId: req.params.id }, function(err, userReference) {
-    if (err) {
+  UserProject.find({ UserId: req.params.id }).exec()
+    .then(userReference => {
+      console.log("userReference :", userReference);
+      console.log("userReference projectId :", userReference.ProjectId);
+      let projectIds = [];
+      userReference.forEach(item => {
+        projectIds.push(item.ProjectId)
+      });
+      console.log("projectIds :", projectIds);
+      return Project.find({ Id: { $in: projectIds } }).exec()
+        .then(project => {
+          res.send(project);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    })
+    .catch(err => {
       console.log(err);
-      res.redirect("/users");
-    } else {
-      res.send(userReference);
-    }
-  });
+    });
 });
 
 app.get("/projects/:id", function(req, res) {
