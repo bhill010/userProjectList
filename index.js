@@ -10,6 +10,12 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+// Set public folder as root
+app.use(express.static('public'));
+
+// Allow front-end access to node_modules folder
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+
 app.get('/', (req, res) => {
   res.send({ hi: 'there' });
 });
