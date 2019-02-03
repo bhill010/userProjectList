@@ -4,13 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/48938155eb24b4ccdde09426066869504c6dab3c/dist/css/bootstrap.min.css">
+
   <title>User Project List</title>
 </head>
 <body>
-    <div>
-      <h3>
-        Test
-      </h3>
+
+  <div class="dropdown">
+    <!-- <button onclick="myFunction()" class="dropbtn">Dropdown</button> -->
+    <select>
+     <option style="display:none" disabled selected value> -- </option>
+     <option value="User1">User1</option>
+     <option value="User2">User2</option>
+     <option value="User3">User3</option>
+   </select>
+  </div>
+
+    <div style="display:flex;">
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          Project Id
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          Start Date
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          Time To Start
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          End Date
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          Credits
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+      <div style="display:flex; flex-direction: column">
+        <div class="btn btn-primary">
+          Status
+        </div>
+        <div>
+          Data
+        </div>
+      </div>
+
+
     </div>
     <!-- Application Root -->
     <div id="app"></div>
