@@ -27,7 +27,7 @@ app.use(express.static('public'));
 
 /* Run this function to seed database with initial data
 */
-seedDatabase();
+// seedDatabase();
 
 // require("./routes/userRoutes")(app);
 // require("./routes/projectRoutes")(app);
@@ -40,13 +40,15 @@ app.get("/", function(req, res){
 });
 
 app.get("/users", function(req, res, next) {
-  User.find({}, function(err, users) {
-    if (err) {
-      console.log(err);
-    } else {
+  User.find({})
+    .sort('FirstName')
+    .exec()
+    .then(users => {
       res.render("index", {users: users});
-    }
-  });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 app.get("/users/:id", function(req, res) {

@@ -28,6 +28,7 @@ body {
   border: 3px solid #05668D;
   padding: 25px;
   height: 80%;
+  min-height: 400px;
 }
 
 .user-dropdown-container {
