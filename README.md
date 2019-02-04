@@ -68,4 +68,9 @@ Mongoose and jQuery were helpful for implementing the business logic of the appl
 
 Lastly, the database for this project is pre-populated with information generated within the seed file (found under /Config/seed.js
 
+### Download
+
+If you would like to test this out, please download the files and run "npm install" to download the necessary modules.
+Next, run "npm run dev" to start the server.
+
 Thank you for reading!
