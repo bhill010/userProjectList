@@ -24,7 +24,6 @@ app.use(express.static("public"));
 // seedDatabase();
 
 require("./routes/userRoutes")(app);
-require("./routes/projectRoutes")(app);
 require("./routes/userProjectRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
