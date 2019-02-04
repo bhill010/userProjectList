@@ -1,15 +1,22 @@
 $("#user-dropdown-container").on("change", "#user-dropdown", function(e) {
   e.preventDefault();
-  var url = $(this)
+
+  // retrieve request parameters from the option select's href attribute
+  let url = $(this)
     .find("option:selected")
     .attr("href");
+
+  // update the URL to reflect request parameters
   history.pushState(null, "", url);
+
+  // remove the previous set of results when choosing a new user
   $("#project-table")
     .find("tr:not(:first)")
     .fadeOut(100, function() {
       $(this).remove();
     });
 
+  // use AJAX to retrieve user project information
   $.ajax({
     url: url,
     type: "get",
