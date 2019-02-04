@@ -73,4 +73,6 @@ Lastly, the database for this project is pre-populated with information generate
 If you would like to test this out, please download the files and run "npm install" to download the necessary modules.
 Next, run "npm run dev" to start the server.
 
+Please note that your instance will not include a congif/keys file for the MongoDB access password. Please let me know if you need assistance with that.
+
 Thank you for reading!
